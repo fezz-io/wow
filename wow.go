@@ -46,6 +46,7 @@ func (w *Wow) run(ctx context.Context) {
 		select {
 		case <-ctx.Done():
 			t.Stop()
+			time.Sleep(time.Second*1)
 			return
 		case <-t.C:
 			txt := erase + w.s.Frames[at%len(w.s.Frames)] + w.txt
